@@ -32,19 +32,37 @@ async def hp(ctx, token:str):
             embed.set_footer(text="Check made by honeypot.is might not be accurate")
             await ctx.send(embed=embed)
         else:
-            embed = discord.Embed(
-                title= "NOT HONEYPOT",
-                color= discord.Color.green()
-                
-            )
-            embed.add_field(name="Buy tax", value=str(detect['BuyTax']) + "%",inline=True)
-            embed.add_field(name="Sell tax", value=str(detect['SellTax']) + "%",inline=True)
-            embed.add_field(value=f"[holders](https://etherscan.io/token/{token}#balances)", name = "\u200b", inline=False)
-            embed.add_field(value=f"[defined](https://www.defined.fi/eth/{token})", name="\u200b", inline=True)
-            embed.add_field(value=f"[dexscreener](https://dexscreener.com/ethereum/{token})", name="\u200b", inline=True)
-            embed.set_thumbnail(url="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/60301/thumb-up-emoji-clipart-xl.png")
-            embed.set_footer(text="Check made by honeypot.is might not be accurate")
-            await ctx.send(embed=embed)
+            if detect['SellTax'] > 20 or detect['BuyTax'] > 20:
+                    embed = discord.Embed(
+                    title= "TAXES OVER 20",
+                    color= discord.Color.orange()
+                    
+                )
+                    embed.add_field(name="Buy tax", value=str(detect['BuyTax']) + "%",inline=True)
+                    embed.add_field(name="Sell tax", value=str(detect['SellTax']) + "%",inline=True)
+                    embed.add_field(value=f"[holders](https://etherscan.io/token/{token}#balances)", name = "\u200b", inline=False)
+                    embed.add_field(value=f"[defined](https://www.defined.fi/eth/{token})", name="\u200b", inline=True)
+                    embed.add_field(value=f"[dexscreener](https://dexscreener.com/ethereum/{token})", name="\u200b", inline=True)
+
+                    embed.set_thumbnail(url="https://i.pinimg.com/474x/78/25/ba/7825ba60fd977348bd7be5851a8853db.jpg")
+                    embed.set_footer(text="Check made by honeypot.is might not be accurate")
+                    await ctx.send(embed=embed)
+
+            else:
+                embed = discord.Embed(
+                    title= "NOT HONEYPOT",
+                    color= discord.Color.green()
+                    
+                )
+                embed.add_field(name="Buy tax", value=str(detect['BuyTax']) + "%",inline=True)
+                embed.add_field(name="Sell tax", value=str(detect['SellTax']) + "%",inline=True)
+                embed.add_field(value=f"[holders](https://etherscan.io/token/{token}#balances)", name = "\u200b", inline=False)
+                embed.add_field(value=f"[defined](https://www.defined.fi/eth/{token})", name="\u200b", inline=True)
+                embed.add_field(value=f"[dexscreener](https://dexscreener.com/ethereum/{token})", name="\u200b", inline=True)
+
+                embed.set_thumbnail(url="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/60301/thumb-up-emoji-clipart-xl.png")
+                embed.set_footer(text="Check made by honeypot.is might not be accurate")
+                await ctx.send(embed=embed)
 
     
 
