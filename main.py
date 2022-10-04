@@ -34,7 +34,7 @@ async def hp(ctx, token:str):
         else:
             if detect['SellTax'] > 20 or detect['BuyTax'] > 20:
                     embed = discord.Embed(
-                    title= "TAXES OVER 20",
+                    title= "TAXES OVER 20%",
                     color= discord.Color.orange()
                     
                 )
