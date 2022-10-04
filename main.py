@@ -47,4 +47,4 @@ async def hp(ctx, token:str):
     
 
 
-bot.run(os.environ("discord_api"))
+bot.run(os.environ['discord_api'])
